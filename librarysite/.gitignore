@@ -1,0 +1,24 @@
+*.log
+local_settings.py
+
+.scrapy
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# dotenv
+.env
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# virtualenv
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject

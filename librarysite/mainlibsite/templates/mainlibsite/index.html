@@ -1,0 +1,25 @@
+{% extends 'mainlibsite/base_generic.html' %}
+
+{% block content %}
+<ul class="list-articles">
+    {% for p in books %}
+    <li>
+        <div class="article-panel">
+            <p class="first">Автор: {{p.author}}</p>
+            <p class="last">Год издания: {{p.year_publish}}</p>
+        </div>
+
+        {% if p.image_book %}
+        <p><img class="img-article-left thumb" src="{{p.image_book.url}}"></p>
+        {% endif %}
+
+    <li><h2>{{p.name}}</h2>
+        {% autoescape on %}
+        {{p.short_info|linebreaks|truncatewords:25}}
+        {% endautoescape %}
+        <div class="clear"></div>
+        <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать полное описание</a></p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

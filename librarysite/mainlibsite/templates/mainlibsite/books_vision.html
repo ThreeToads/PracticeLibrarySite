@@ -1,0 +1,11 @@
+{% extends 'mainlibsite/base_generic.html' %}
+
+{% block content %}
+<h1>{{books.name}}</h1>
+
+{% if books.image_book %}
+<p><img class="img-article-left" src="{{books.image_book.url}}"></p>
+{% endif %}
+
+{{books.short_info|linebreaks}}
+{% endblock %}
