@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', LoginUser.as_view(), name='login'),
     path('logout/', LoginUser.as_view(), name='logout'),
     path('register/', RegisterUser.as_view(), name='register'),
+    #path('comments/', AddComment.as_view(), name='comments'),
     path('book/<slug:book_slug>/', ShowBook.as_view(), name='book'),
 
 ]

@@ -34,3 +34,21 @@ class Books(models.Model):
         verbose_name = 'Список книг'
         verbose_name_plural = 'Список книг'
         ordering = ['name', 'author']
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Books,on_delete=models.SET_DEFAULT, related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField(max_length=2000)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Комментарии'
+        verbose_name_plural = 'Комментарии'
+        ordering = ('created',)
+
+    def __str__(self):
+        return 'Comment by {} on {}'.format(self.name, self.post)
